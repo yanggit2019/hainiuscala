@@ -12,6 +12,14 @@ object HelloWorld {
         print(s"${i} ")
       }
     )
+    println("--------")
+    //实现continue操作
+    for (i <- 1 to 5){
+      breaks.breakable(
+        if (i==3) breaks.break()
+        else print(s"${i} ")
+      )
+    }
     
      
   }
