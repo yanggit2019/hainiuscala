@@ -8,6 +8,12 @@ object ParDemo {
 //      打印当前的线程名
       println(s"${Thread.currentThread().getName} => ${f}")
     })
+//    利用CPU核数来进行遍历
+    list.par.foreach(f =>{
+      //      打印当前的线程名
+      println(s"${Thread.currentThread().getName} => ${f}")
+    } )
+    
   }
   
 }
