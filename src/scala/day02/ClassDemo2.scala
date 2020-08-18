@@ -14,3 +14,10 @@ object ClassDemo2{
     println(demo.age)
   }
 }
+//非伴生对象
+object ClassDemo2Other{
+  def main(args: Array[String]): Unit = {
+    val demo = new ClassDemo2
+    demo.age
+  }
+}
