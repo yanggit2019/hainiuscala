@@ -19,5 +19,9 @@ object ClassDemoTest{
     //测试
     val demo = new ClassDemo
     println(demo.name)
+    //设置属性值
+    demo.setName("hainiu123")
+    //打印信息
+    demo.printInfo()
   }
 }
