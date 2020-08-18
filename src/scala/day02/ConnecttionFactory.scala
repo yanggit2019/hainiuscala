@@ -10,3 +10,8 @@ object ConnecttionFactory {
   //提供释放连接的操作
 
 }
+//创建连接对象
+class Conn(var id:String){
+  //相当于Java的toString方法
+  override def toString: String = s"Conn[${id}]"
+}
