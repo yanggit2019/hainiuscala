@@ -6,6 +6,7 @@ class ConDemo3(var name:String) {
   //定义辅助构造器
   //辅助构造器参数不能加var val修饰
   //辅助构造器可以重载
+  //辅助构造器不能跟主构造器形成列表一致
   def this(name:String,age:Int) = {
     this(name)
     this.age=age
