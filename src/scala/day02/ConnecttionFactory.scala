@@ -14,8 +14,10 @@ object ConnecttionFactory {
   }
   //7.提供获取总连接数
   def getConnSize = this.conns.size
-  //提供获取连接的操作
-  
+  //8.提供获取连接的操作
+  def getConn = {
+    
+  }
   //提供释放连接的操作
 
 }
@@ -23,4 +25,11 @@ object ConnecttionFactory {
 class Conn(var id:Int){
   //3.相当于Java的toString方法
   override def toString: String = s"Conn[${id}]"
+}
+//9.获取测试类
+object ConnectionFactoryDemo{
+  def main(args: Array[String]): Unit = {
+    //10.获取连接数
+    println(ConnecttionFactory.getConnSize)
+  }
 }
