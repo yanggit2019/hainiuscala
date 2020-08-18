@@ -19,5 +19,7 @@ object ConDemo2Other{
     val demo = new ConDemo2("傻强")
 //    println(s"name:${demo.name},age:${demo.age}")
     println(s"name:${demo.name}")
+    //private修饰的主构造器参数，其他对象不能访问
+//    demo.age
   }
 }
