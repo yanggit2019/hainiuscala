@@ -56,5 +56,16 @@ object ConnectionFactoryDemo{
     println(s"conn2:${conn2}")
     println(s"conn3:${conn3}")
     println(s"conn4:${conn4}")
+    
+    //16 释放连接
+    val res4:Boolean=ConnecttionFactory.releaseConn(conn4)
+    val res3:Boolean=ConnecttionFactory.releaseConn(conn3)
+    val res2:Boolean=ConnecttionFactory.releaseConn(conn2)
+    val res:Boolean=ConnecttionFactory.releaseConn(conn)
+
+    println(s"conn release result:${res4}")
+    println(s"conn2 release result:${res3}")
+    println(s"conn3 release result:${res2}")
+    println(s"conn4 release result:${res}")
   }
 }
