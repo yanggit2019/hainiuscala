@@ -12,8 +12,8 @@ object ConnecttionFactory {
   for(i <- 0 until connMax){
     conns += new Conn(i)
   }
-  //提供获取总连接数
-  
+  //7.提供获取总连接数
+  def getConnSize = this.conns.size
   //提供获取连接的操作
   
   //提供释放连接的操作
