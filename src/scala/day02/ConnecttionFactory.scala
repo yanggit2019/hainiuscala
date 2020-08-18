@@ -39,5 +39,14 @@ object ConnectionFactoryDemo{
     println(ConnecttionFactory.getConnSize)
     //11.获取连接
     val conn = ConnecttionFactory.getConn
+    //13.获取多个连接
+    val conn2 = ConnecttionFactory.getConn
+    val conn3 = ConnecttionFactory.getConn
+    val conn4 = ConnecttionFactory.getConn
+    //14.打印连接
+    println(s"conn:${conn}")
+    println(s"conn2:${conn2}")
+    println(s"conn3:${conn3}")
+    println(s"conn4:${conn4}")
   }
 }
