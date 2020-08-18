@@ -16,7 +16,13 @@ object ConnecttionFactory {
   def getConnSize = this.conns.size
   //8.提供获取连接的操作
   def getConn = {
-    
+    //12.判断连接
+    if (this.conns.size == 0){
+      null
+    }else{
+      val conn = this.conns.remove(0)
+      conn
+    }
   }
   //提供释放连接的操作
 
@@ -29,7 +35,9 @@ class Conn(var id:Int){
 //9.获取测试类
 object ConnectionFactoryDemo{
   def main(args: Array[String]): Unit = {
-    //10.获取连接数
+    //10.获取总连接数
     println(ConnecttionFactory.getConnSize)
+    //11.获取连接
+    val conn = ConnecttionFactory.getConn
   }
 }
