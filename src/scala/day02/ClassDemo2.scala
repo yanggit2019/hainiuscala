@@ -7,6 +7,7 @@ class ClassDemo2 {
   private val age:Int = 20
   //private[this]修饰的成员，只有当前类能访问，伴生对象不能访问
   private[this] var money:Int =1
+  private def getMoney()=this.money
 }
 
 //class ClassDemo2 伴生对象
@@ -15,7 +16,7 @@ object ClassDemo2{
     val demo = new ClassDemo2
     //伴生对象可以访问
     println(demo.age)
-    println(demo.money)
+    println(demo.getMoney())
   }
 }
 //非伴生对象
