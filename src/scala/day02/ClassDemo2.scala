@@ -7,6 +7,7 @@ class ClassDemo2 {
   private val age:Int = 20
   //private[this]修饰的成员，只有当前类能访问，伴生对象不能访问
   private[this] var money:Int =1
+  //给伴生对象提供权限
   private def getMoney()=this.money
 }
 
