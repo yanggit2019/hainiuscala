@@ -3,7 +3,8 @@ package day02
 //最后一个参数末尾参数可以是默认参数，当new对象是可以不传
 //private和private[this]都可以修饰主构造器函数，权限同属性一样
 class ConDemo2 (var name:String,addr:String = "北京市",private val age:Int = 20){
-
+  //定义公有方法
+  def getAge = this.age
 }
 
 object ConDemo2{
@@ -21,5 +22,6 @@ object ConDemo2Other{
     println(s"name:${demo.name}")
     //private修饰的主构造器参数，其他对象不能访问
 //    demo.age
+    println(demo.getAge)
   }
 }
