@@ -24,7 +24,15 @@ object ConnecttionFactory {
       conn
     }
   }
-  //提供释放连接的操作
+  //15.提供释放连接的操作
+  def releaseConn(conn: Conn):Boolean={
+    if (conn ==null || this.conns.size == connMax){
+      false
+    }else{
+      this.conns += conn
+      true
+    }
+  }
 
 }
 //2.创建连接对象
