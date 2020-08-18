@@ -12,5 +12,12 @@ object Parser{
   //H:\input ip.txt
   private[this] val path:String = "H:\\input\\ip.txt"
   //scala读文件
-  private[this] val list: List[String] = Source.fromFile(path).getLines().toList
+  private[this] val lines: List[String] = Source.fromFile(path).getLines().toList
+  println(lines)
+  private val map: Map[String, String] = lines.map(_.split(" ")).map(f => (f(0), f(1))).toMap
+  println(map)
+  //测试方法：
+  def main(args: Array[String]): Unit = {
+    
+  }
 }
