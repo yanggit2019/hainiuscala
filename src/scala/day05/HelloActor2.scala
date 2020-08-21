@@ -12,6 +12,8 @@ class HelloActor2 extends Actor {
         case "start" => println("actor receive start")
         case "id1" => {
           println("actor receive id1,send id2")
+          //10.加入延时
+          Thread.sleep(2000)
           //7.返回异步无返回消息
           sender ! "id2"
         }
