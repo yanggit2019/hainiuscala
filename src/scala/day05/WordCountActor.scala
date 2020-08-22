@@ -30,8 +30,9 @@ object WordCountActor {
     "H:\\课程\\0821-scala05\\code\\测试数据\\input\\word3.txt",
     "H:\\课程\\0821-scala05\\code\\测试数据\\input\\word4.txt"
   )
+    //用于装future
   val futures = new ListBuffer[Future[Any]]
-  //定义一个存放数据的list
+  //定义一个存放数据的list,用于装future中的数据
   val mapList = new ListBuffer[Map[String, Int]]
   //1.读取文件
   for (file <- arr) {
