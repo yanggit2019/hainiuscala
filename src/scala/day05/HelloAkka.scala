@@ -12,6 +12,7 @@ class HelloAkka extends Actor{
     }
     case  "stop this" =>{
       println("actor receive ==> stop this ,stopping ....")
+      //关闭的是当前的actor对象
       context.stop(self)
     }
   }
@@ -27,7 +28,7 @@ object HelloAkka{
     helloRef ! "start"
     helloRef ! "hello"
     helloRef ! "stop this"
-    //关闭之后就收不到消息
+    //当关闭了actor对象后，当前消息就处理不了了
     helloRef ! "hello"
   }
 }
