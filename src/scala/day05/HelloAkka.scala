@@ -7,6 +7,13 @@ class HelloAkka extends Actor{
     case  "start" =>{
       println("actor receive ==> start")
     }
+    case  "hello" =>{
+      println("actor receive ==> hello")
+    }
+    case  "stop this" =>{
+      println("actor receive ==> stop this ,stopping ....")
+      context.stop(self)
+    }
   }
 }
 
@@ -18,6 +25,9 @@ object HelloAkka{
     //创建HelloAkka对象，并获取外部引用对象,给对象起别名
     val helloRef: ActorRef = actorSystem.actorOf(Props[HelloAkka], "hello")
     helloRef ! "start"
-    
+    helloRef ! "hello"
+    helloRef ! "stop this"
+    //关闭之后就收不到消息
+    helloRef ! "hello"
   }
 }
