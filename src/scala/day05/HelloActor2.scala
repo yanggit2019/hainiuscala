@@ -54,6 +54,8 @@ object HelloActor2{
       Thread.sleep(800)
       println("sleep 800")
     }
+    //16.有值后转换打印值
+    //future()提取数据，内部调用class的apply方法
     val msg2: AsyncSendAndReturnMsg = future().asInstanceOf[AsyncSendAndReturnMsg]
     println(msg2)
   }
