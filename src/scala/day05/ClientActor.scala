@@ -35,7 +35,7 @@ class ClientActor(val serverHost:String,serverPort:Int) extends Actor{
 
 object ClientActor{
   def main(args: Array[String]): Unit = {
-    val serverHost = "127.0.0.1"
+    val serverHost = "192.168.88.189"
     val serverPort = 8888
     val host:String = "127.0.0.1"
     val port:Int = 8889
