@@ -7,6 +7,24 @@ class ServerActor extends Actor{
   override def receive: Receive = {
         
     case "start" => println("server receive ==> start ")
+    case Client2ServerMsg(num1,symbol,num2) =>{
+      println(s"server receive ==> Client2ServerMsg(${num1},${symbol},${num2})")
+      var res:Int =0
+      var errCode:String="000000"
+      var errMsg:String="成功"
+      symbol match {
+        case "+" => res = num1+num2
+        case "-" =>res = num1-num2
+        case "*" =>res = num1*num2
+        case _ =>{
+          errCode = "ERR001"
+          errMsg = "该计算目前只支持+-*运算，待版本更新后，再来尝试其他运算"
+        }
+      }
+      val msg = Server2ClientMsg(errCode,errMsg,res)
+      println(s"server send ${msg}")
+          sender() ! msg
+    }
   }
 }
 
