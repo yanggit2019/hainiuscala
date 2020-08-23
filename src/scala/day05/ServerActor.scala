@@ -30,8 +30,10 @@ class ServerActor extends Actor{
 
 object ServerActor{
   def main(args: Array[String]): Unit = {
-    val host:String = "127.0.0.1"
-    val port:Int = 8888
+    val host = args(0)
+    val port = args(1).toInt
+//    val host:String = "127.0.0.1"
+//    val port:Int = 8888
 
     // 解析配置参数
     val config:Config = ConfigFactory.parseString(
