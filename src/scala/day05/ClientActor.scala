@@ -9,7 +9,7 @@ class ClientActor(val serverHost:String,serverPort:Int) extends Actor{
   var serverRef: ActorSelection = _
   override def preStart(): Unit = {
     //获取ServerActor的外部引用对象，不创建对象，只获取
-    serverRef = context.actorSelection("akka.tcp://server_sys@127.0.0.1:8888/user/server")
+    serverRef = context.actorSelection(s"akka.tcp://server_sys@${serverHost}:${serverPort}/user/server")
   }
   override def receive: Receive = {
     case "start" => println("client receive ==> start")
