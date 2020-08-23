@@ -6,6 +6,9 @@ import com.typesafe.config.{Config, ConfigFactory}
 class ClientActor(val serverHost:String,serverPort:Int) extends Actor{
   override def receive: Receive = {
     case "start" => println("client receive ==> start")
+    case SendClientMsg(data) =>{
+      println(s"client receive ==> SendClientMsg(${data})")
+    }
   }
 }
 
@@ -27,5 +30,8 @@ object ClientActor{
     val clientSys: ActorSystem = ActorSystem("client_sys", config)
     val clientRef: ActorRef = clientSys.actorOf(Props[ClientActor](new ClientActor(serverHost, serverPort)), "client")
     clientRef ! "start"
+    clientRef ! SendClientMsg("1+2")
   }
 }
+//定义样例类用于封装本地发送给clientActor的消息
+case class SendClientMsg(data:String)
