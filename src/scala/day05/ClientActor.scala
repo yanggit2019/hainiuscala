@@ -3,6 +3,8 @@ package day05
 import akka.actor.{Actor, ActorRef, ActorSelection, ActorSystem, Props}
 import com.typesafe.config.{Config, ConfigFactory}
 
+import scala.util.Random
+
 class ClientActor(val serverHost:String,serverPort:Int) extends Actor{
   var serverRef: ActorSelection = _
   override def preStart(): Unit = {
@@ -50,6 +52,15 @@ object ClientActor{
     val clientRef: ActorRef = clientSys.actorOf(Props[ClientActor](new ClientActor(serverHost, serverPort)), "client")
     
     clientRef ! "start"
+    
+    val symbolArr = Array("+","-","*","/")
+    while(true){
+      val num1: Int = Random.nextInt(100)
+      val num2: Int = Random.nextInt(100)
+      val symbol: String = symbolArr(Random.nextInt(symbolArr.length))
+      clientRef ! SendClientMsg(s"${num1} ${symbol} ${num2}")
+      Thread.sleep(1000)
+    }
     clientRef ! SendClientMsg("1 + 2")
   }
 }
